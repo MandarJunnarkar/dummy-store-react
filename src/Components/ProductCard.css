@@ -1,46 +1,9 @@
 .card {
-  position: relative;
-  background: #191919;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px 0 rgba(255, 255, 255, 0.247);
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  width: 100%;
-  height: 90%;
-  background: #ffce00;
-  transform: skewY(345deg);
-  transition: 0.5s;
-}
-
-.card:hover::before {
-  top: -70%;
-  transform: skewY(390deg);
-}
-
-.card::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  font-weight: 600;
-  font-size: 6em;
-  color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px 0 rgba(255, 255, 255, 0.342);
+  border-radius: 15px;
 }
 
 .btn {
-  position: relative;
-  top: 100px;
-  opacity: 0;
-  padding: 10px 30px;
-  margin-top: 15px;
-  color: #000000;
-  text-decoration: none;
-  background: #ffce00;
   border-radius: 30px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -49,7 +12,3 @@
   border: none;
 }
 
-.card:hover .btn {
-  top: 0;
-  opacity: 1;
-}

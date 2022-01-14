@@ -9,7 +9,8 @@ import './App.css'
 function App() {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [cartItem, setCartItem] = useState([]);
+  
   useEffect(() => {
     const getProducts = async () => {
       const response = await fetch("https://fakestoreapi.com/products");
@@ -19,10 +20,22 @@ function App() {
     getProducts();
   }, []);
 
+  const handleDelete = (id) =>{
+    let newCart = [...cartItem]
+    newCart = newCart.filter(item => item.id !== id)
+    setCartItem(newCart);
+  }
+
+  const onGetItemData = (data) =>{
+    const cartData = [
+      ...data
+    ]
+    setCartItem(cartData);
+  }
   return (
     <>
-    <Navigation onSearch={setSearchTerm} searchTerm={searchTerm}/>
-    <Products searchTerm={searchTerm} products={products}/>
+    <Navigation cartData={cartItem} onSearch={setSearchTerm} searchTerm={searchTerm} handleDelete={handleDelete}/>
+    <Products onGetItemData={onGetItemData} searchTerm={searchTerm} products={products}/>
     </>
   );
 }
